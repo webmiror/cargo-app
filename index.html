@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тестовое задание</title>
+  </head>
+  <body>
+    <header>
+      <div class="container-fluid top-info">Тестовое задание</div>
+    </header>
+
+    <section class="page">
+      <div class="container">
+        <h1 class="title-block">Список грузов</h1>
+        <div class="top-line row">
+          <div class="col-xs-12 col-lg-8">
+            <div class="row">
+              <div class="col-5 col-sm-5 col-lg-5">
+                <div class="sort">
+                  <select class="form-select" aria-label="Статус">
+                    <option selected>Выбирите статус</option>
+                    <option value="1">Ожидает отправки</option>
+                    <option value="2">В пути</option>
+                    <option value="3">Доставлен</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-lg-4 d-flex justify-content-end">
+            <a
+              href="#"
+              class="btn btn-dark"
+              id="addPosition"
+              data-bs-toggle="modal"
+              data-bs-target="#addPositionModal"
+            >
+              + Добавить
+            </a>
+          </div>
+        </div>
+
+        <div class="wrapper-top">
+          <div class="row line-item align-items-center row-caption">
+            <div class="col-12 col-lg-2">Номер</div>
+            <div class="col-12 col-lg-2">Название</div>
+            <div class="col-12 col-lg-2">Направление</div>
+            <div class="col-12 col-lg-2">Дата</div>
+            <div class="col-12 col-lg-2">Статус груза</div>
+            <div class="col-12 col-lg-2"></div>
+          </div>
+        </div>
+        <div class="items-list"></div>
+      </div>
+    </section>
+
+    <section
+      class="modal fade"
+      tabindex="-1"
+      id="addPositionModal"
+      aria-labelledby="addPositionModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Добавить груз</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body popup">
+            <form action="/" id="add-position" name="form">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  placeholder="Название груза"
+                />
+              </div>
+              <div class="input-group">
+                <select
+                  class="form-select"
+                  name="origin"
+                  aria-label="Пункт Доставления"
+                >
+                  <option value="no-value" selected>Пункт Доставления</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <select
+                  class="form-select"
+                  name="destination"
+                  aria-label="Пункт назначения"
+                >
+                  <option value="no-value" selected>Пункт назначения</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <input
+                  type="date"
+                  class="form-control"
+                  name="departureDate"
+                  placeholder="Дата отправки"
+                />
+              </div>
+
+              <div class="input-group">
+                <select class="form-select" name="status" aria-label="Статус">
+                  <option value="1" selected>Ожидает отправки</option>
+                  <option value="2">В пути</option>
+                  <option value="3">Доставлен</option>
+                </select>
+              </div>
+
+              <button type="sumbit" class="btn btn-primary">Добавить</button>
+
+              <p class="error"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="modal fade"
+      tabindex="-1"
+      id="changeStatusModal"
+      aria-labelledby="changeStatusModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Изменить статус</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body popup">
+            <form action="/" id="change-status" name="form">
+              <div class="mb-2 row">
+                <div class="col-lg-6">Номер груза</div>
+                <div class="col-lg-6">
+                  <div class="form-id-cargo"></div>
+                </div>
+              </div>
+
+              <div class="mb-2 row">
+                <div class="col-lg-6">Название груза</div>
+                <div class="col-lg-6">
+                  <div class="form-name-cargo"></div>
+                </div>
+              </div>
+
+              <div class="mb-2 input-group">
+                <select
+                  class="form-select"
+                  name="ch-status"
+                  aria-label="Статус"
+                >
+                  <option value="1" selected>Ожидает отправки</option>
+                  <option value="2">В пути</option>
+                  <option value="3">Доставлен</option>
+                </select>
+              </div>
+
+              <button type="sumbit" class="btn btn-primary">Изменить</button>
+
+              <p class="error"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
